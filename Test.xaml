@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Test" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="498,2594" sap2010:WorkflowViewState.IdRef="Test_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Test" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="498,3895" sap2010:WorkflowViewState.IdRef="Test_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
       <x:String>System.Activities</x:String>
@@ -44,13 +44,14 @@
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Test" sap:VirtualizedContainerService.HintSize="458,2474" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Test" sap:VirtualizedContainerService.HintSize="458,3815" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="Temp1" />
       <Variable x:TypeArguments="x:String" Name="Temp2" />
       <Variable x:TypeArguments="x:String" Name="Temp3" />
       <Variable x:TypeArguments="x:String" Name="Temp4" />
       <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable_Policy" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable_Address" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -122,9 +123,6 @@
       </ui:BrowserScope>
     </Sequence>
     <Sequence DisplayName="Data Scraping" sap:VirtualizedContainerService.HintSize="436,886" sap2010:WorkflowViewState.IdRef="Sequence_6">
-      <Sequence.Variables>
-        <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable_Address" />
-      </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -160,6 +158,51 @@
           </ActivityAction>
         </ui:BrowserScope.Body>
       </ui:BrowserScope>
+    </Sequence>
+    <Sequence DisplayName="Data Scraping" sap:VirtualizedContainerService.HintSize="436,1301" sap2010:WorkflowViewState.IdRef="Sequence_8">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable" />
+        <Variable x:TypeArguments="ui:GenericValue" Name="Mileage" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'CPMIntera Page'" sap:VirtualizedContainerService.HintSize="414,900" sap2010:WorkflowViewState.IdRef="BrowserScope_3" InformativeScreenshot="4f14880ff99c73ac85369da181f735ae" Selector="&lt;html title='CPMInteractionPortal' /&gt;">
+        <ui:BrowserScope.Body>
+          <ActivityAction x:TypeArguments="x:Object">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="336,754" sap2010:WorkflowViewState.IdRef="Sequence_7">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:ExtractData NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[ExtractDataTable]" DelayBetweenPagesMS="300" DisplayName="Extract Structured Data 'HTML '" ExtractMetadata="&lt;extract&gt;&lt;column name='Column1' attr='text' exact='1'&gt;&lt;webctrl class='harnessBody  ' tag='body' idx='1' /&gt;&lt;webctrl tag='div' idx='4' /&gt;&lt;webctrl tag='form' idx='1' /&gt;&lt;webctrl class='harnessContent' tag='div' idx='1' /&gt;&lt;webctrl class='containerBody' tag='table' idx='1' /&gt;&lt;webctrl tag='tbody' idx='1' /&gt;&lt;webctrl tag='tr' idx='1' /&gt;&lt;webctrl tag='td' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl class='sectionDivStyle' tag='div' idx='1' /&gt;&lt;webctrl class='layout layout-none' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content layout-content-inline_grid_double_15_85 content-inline_grid_double_15_85  ' tag='div' idx='1' /&gt;&lt;webctrl class='content-item content-layout item-2   ' tag='div' idx='1' /&gt;&lt;webctrl class='content-inner ' tag='div' idx='1' /&gt;&lt;webctrl class='layout layout-none' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content layout-content-default  ' tag='div' idx='1' /&gt;&lt;webctrl class='content-item content-sub_section item-1   ' tag='div' idx='1' /&gt;&lt;webctrl class='content-inner ' tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl class='layout layout-none' tag='div' idx='2' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content layout-content-simple_list content-simple_list  ' tag='div' idx='1' /&gt;&lt;webctrl class='content-item content-layout item-1 remove-top-spacing remove-bottom-spacing   ' tag='div' idx='1' /&gt;&lt;webctrl class='content-inner ' tag='div' idx='1' /&gt;&lt;webctrl class='layout layout-none' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content layout-content-simple_list content-simple_list  ' tag='div' idx='1' /&gt;&lt;webctrl class='content-item content-sub_section item-1   ' tag='div' idx='1' /&gt;&lt;webctrl class='content-inner ' tag='div' idx='1' /&gt;&lt;webctrl class='sectionDivStyle' tag='div' idx='1' /&gt;&lt;webctrl tag='table' idx='2' /&gt;&lt;webctrl tag='tbody' idx='1' /&gt;&lt;webctrl tag='tr' idx='2' /&gt;&lt;webctrl class='dataLabelRead' tag='td' idx='1' /&gt;&lt;webctrl tag='table' idx='1' /&gt;&lt;webctrl tag='tbody' idx='1' /&gt;&lt;webctrl tag='tr' idx='1' /&gt;&lt;webctrl tag='td' idx='1' /&gt;&lt;webctrl class='alignLeft' tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl class='sectionDivStyle' tag='div' idx='1' /&gt;&lt;webctrl class='yui-navset pegaTabGrp yui-navset-top Three_Sixty_Tabs Three_Sixty_Tabs-t headerTabbed headerTabbed-t' tag='div' idx='1' /&gt;&lt;webctrl class='yui-content tabContent' tag='div' idx='1' /&gt;&lt;webctrl class='sectionBodyContainerCustomHead tabpanelnofocus' tag='div' idx='2' /&gt;&lt;webctrl class='sectionDivStyle' tag='div' idx='1' /&gt;&lt;webctrl class='layout layout-none' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content content-layout-group layout-group-accordion' tag='div' idx='1' /&gt;&lt;webctrl class='layout active multiactive count-8' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content layout-content-default content-default  ' tag='div' idx='1' /&gt;&lt;webctrl class='content-item content-sub_section item-1   ' tag='div' idx='1' /&gt;&lt;webctrl class='content-inner ' tag='div' idx='1' /&gt;&lt;webctrl class='sectionDivStyle' tag='div' idx='1' /&gt;&lt;webctrl class='layout layout-none' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content layout-content-inline_grid_double content-inline_grid_double  ' tag='div' idx='1' /&gt;&lt;webctrl class='content-item content-layout item-1 remove-top-spacing   ' tag='div' idx='1' /&gt;&lt;webctrl class='content-inner ' tag='div' idx='1' /&gt;&lt;webctrl class='layout layout-none' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content layout-content-default content-default  ' tag='div' idx='1' /&gt;&lt;webctrl class='content-item content-layout item-4   ' tag='div' idx='1' /&gt;&lt;webctrl class='content-inner ' tag='div' idx='1' /&gt;&lt;webctrl class='layout layout-none' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content layout-content-default content-default  ' tag='div' idx='1' /&gt;&lt;webctrl class='content-item content-layout item-1   ' tag='div' idx='1' /&gt;&lt;webctrl class='content-inner ' tag='div' idx='1' /&gt;&lt;webctrl class='layout layout-outline layout-outline-aa_online_layout' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content layout-content-aa_review_with_labels_left content-aa_review_with_labels_left  ' tag='div' idx='1' /&gt;&lt;webctrl class='content-item content-sub_section item-1 remove-top-spacing   ' tag='div' idx='1' /&gt;&lt;webctrl class='content-inner ' tag='div' idx='1' /&gt;&lt;webctrl class='sectionDivStyle' tag='div' idx='1' /&gt;&lt;webctrl class='layout layout-none' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content layout-content-inline content-inline vehicle-360-review ' tag='div' idx='1' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl class='content-inner ' tag='div' idx='1' /&gt;&lt;webctrl class='field-item dataValueRead' tag='div' idx='1' /&gt;&lt;webctrl tag='span' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="ExtractData_3" MaxNumberOfResults="100">
+                <ui:ExtractData.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="11fc7973dcf6a0a602d7d9c38077eb4b" Selector="&lt;webctrl idx='5' tag='HTML' /&gt;" WaitForReady="COMPLETE" />
+                </ui:ExtractData.Target>
+              </ui:ExtractData>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Reg Year - &quot; + ExtractDataTable.Rows(0).Item(0).ToString.Replace(&quot;,&quot;,&quot;&quot;)]" />
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Make - &quot; + ExtractDataTable.Rows(1).Item(0).ToString.Replace(&quot;,&quot;,&quot;&quot;)]" />
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Model - &quot; + ExtractDataTable.Rows(2).Item(0).ToString.Replace(&quot;,&quot;,&quot;&quot;)]" />
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;REG Number - &quot; + ExtractDataTable.Rows(3).Item(0).ToString.Replace(&quot;,&quot;,&quot;&quot;)]" />
+            </Sequence>
+          </ActivityAction>
+        </ui:BrowserScope.Body>
+      </ui:BrowserScope>
+      <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'DIV'" sap:VirtualizedContainerService.HintSize="414,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
+        <ui:GetValue.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="c3c81079b89b5b51c8f2e2b066e7354c" Selector="&lt;html title='CPMInteractionPortal' /&gt;&lt;webctrl idx='142' parentid='CT' tableCol='1' tableRow='1' tag='DIV' /&gt;" WaitForReady="INTERACTIVE" />
+        </ui:GetValue.Target>
+        <ui:GetValue.Value>
+          <OutArgument x:TypeArguments="ui:GenericValue">[Mileage]</OutArgument>
+        </ui:GetValue.Value>
+      </ui:GetValue>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="414,91" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Mileage - &quot; +Split(Mileage,&quot;age&quot;)(1).Trim]" />
     </Sequence>
   </Sequence>
 </Activity>
