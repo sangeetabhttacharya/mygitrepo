@@ -1,0 +1,165 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Test" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="498,2594" sap2010:WorkflowViewState.IdRef="Test_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="21">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="16">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Test" sap:VirtualizedContainerService.HintSize="458,2474" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="Temp1" />
+      <Variable x:TypeArguments="x:String" Name="Temp2" />
+      <Variable x:TypeArguments="x:String" Name="Temp3" />
+      <Variable x:TypeArguments="x:String" Name="Temp4" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable_Policy" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Sequence DisplayName="Data Scraping" sap:VirtualizedContainerService.HintSize="436,1424" sap2010:WorkflowViewState.IdRef="Sequence_3">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'CPMIntera Page'" sap:VirtualizedContainerService.HintSize="414,1300" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="1ca2dd326be5250d1cd6973339493a96" Selector="&lt;html title='CPMInteractionPortal' /&gt;">
+        <ui:BrowserScope.Body>
+          <ActivityAction x:TypeArguments="x:Object">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="336,1154" sap2010:WorkflowViewState.IdRef="Sequence_2">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:ExtractData NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[ExtractDataTable_Policy]" DelayBetweenPagesMS="300" DisplayName="Extract Structured Data 'DIV  RULE_KEY'" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl class='layout layout-none' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content content-layout-group layout-group-accordion' tag='div' idx='1' /&gt;&lt;webctrl class='layout active multiactive count-8' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content layout-content-default content-default  ' tag='div' idx='1' /&gt;&lt;webctrl class='content-item content-sub_section item-1   ' tag='div' idx='1' /&gt;&lt;webctrl class='content-inner ' tag='div' idx='1' /&gt;&lt;webctrl class='sectionDivStyle' tag='div' idx='1' /&gt;&lt;webctrl class='layout layout-none' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content layout-content-inline_grid_double content-inline_grid_double  ' tag='div' idx='1' /&gt;&lt;webctrl class='content-item content-layout item-1 remove-top-spacing   ' tag='div' idx='1' /&gt;&lt;webctrl class='content-inner ' tag='div' idx='1' /&gt;&lt;webctrl class='layout layout-none' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content layout-content-default content-default  ' tag='div' idx='1' /&gt;&lt;webctrl class='content-item content-layout item-1   ' tag='div' idx='1' /&gt;&lt;webctrl class='content-inner ' tag='div' idx='1' /&gt;&lt;webctrl class='layout layout-outline layout-outline-aa_online_layout' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content layout-content-aa_review_with_labels_left content-aa_review_with_labels_left  ' tag='div' idx='1' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl class='content-inner ' tag='div' idx='1' /&gt;&lt;/row&gt;&lt;column name='Column1' attr='text' exact='1'&gt;&lt;webctrl class='layout layout-none' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content content-layout-group layout-group-accordion' tag='div' idx='1' /&gt;&lt;webctrl class='layout active multiactive count-8' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content layout-content-default content-default  ' tag='div' idx='1' /&gt;&lt;webctrl class='content-item content-sub_section item-1   ' tag='div' idx='1' /&gt;&lt;webctrl class='content-inner ' tag='div' idx='1' /&gt;&lt;webctrl class='sectionDivStyle' tag='div' idx='1' /&gt;&lt;webctrl class='layout layout-none' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content layout-content-inline_grid_double content-inline_grid_double  ' tag='div' idx='1' /&gt;&lt;webctrl class='content-item content-layout item-1 remove-top-spacing   ' tag='div' idx='1' /&gt;&lt;webctrl class='content-inner ' tag='div' idx='1' /&gt;&lt;webctrl class='layout layout-none' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content layout-content-default content-default  ' tag='div' idx='1' /&gt;&lt;webctrl class='content-item content-layout item-1   ' tag='div' idx='1' /&gt;&lt;webctrl class='content-inner ' tag='div' idx='1' /&gt;&lt;webctrl class='layout layout-outline layout-outline-aa_online_layout' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content layout-content-aa_review_with_labels_left content-aa_review_with_labels_left  ' tag='div' idx='1' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl class='content-inner ' tag='div' idx='1' /&gt;&lt;webctrl class='field-caption dataLabelForRead review_row_label_dataLabelForRead' tag='label' idx='1' /&gt;&lt;/column&gt;&lt;column name='Column2' attr='text' exact='1'&gt;&lt;webctrl class='layout layout-none' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content content-layout-group layout-group-accordion' tag='div' idx='1' /&gt;&lt;webctrl class='layout active multiactive count-8' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content layout-content-default content-default  ' tag='div' idx='1' /&gt;&lt;webctrl class='content-item content-sub_section item-1   ' tag='div' idx='1' /&gt;&lt;webctrl class='content-inner ' tag='div' idx='1' /&gt;&lt;webctrl class='sectionDivStyle' tag='div' idx='1' /&gt;&lt;webctrl class='layout layout-none' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content layout-content-inline_grid_double content-inline_grid_double  ' tag='div' idx='1' /&gt;&lt;webctrl class='content-item content-layout item-1 remove-top-spacing   ' tag='div' idx='1' /&gt;&lt;webctrl class='content-inner ' tag='div' idx='1' /&gt;&lt;webctrl class='layout layout-none' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content layout-content-default content-default  ' tag='div' idx='1' /&gt;&lt;webctrl class='content-item content-layout item-1   ' tag='div' idx='1' /&gt;&lt;webctrl class='content-inner ' tag='div' idx='1' /&gt;&lt;webctrl class='layout layout-outline layout-outline-aa_online_layout' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content layout-content-aa_review_with_labels_left content-aa_review_with_labels_left  ' tag='div' idx='1' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl class='content-inner ' tag='div' idx='1' /&gt;&lt;webctrl class='field-item dataValueRead' tag='div' idx='1' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="ExtractData_1" MaxNumberOfResults="100">
+                <ui:ExtractData.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="9256c406bf5e2d7a266416dd81cc3390" Selector="&lt;webctrl id='RULE_KEY' name='BASE_REF' parentid='INNERDIV-SubSectionCPMCompositesContainerBB' tag='DIV' /&gt;" WaitForReady="COMPLETE" />
+                </ui:ExtractData.Target>
+              </ui:ExtractData>
+              <Assign sap:VirtualizedContainerService.HintSize="314,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[Temp1]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[ExtractDataTable_Policy.Rows(0).Item(1).ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap:VirtualizedContainerService.HintSize="314,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[Temp2]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[ExtractDataTable_Policy.Rows(3).Item(1).ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap:VirtualizedContainerService.HintSize="314,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[Temp3]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[ExtractDataTable_Policy.Rows(4).Item(1).ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap:VirtualizedContainerService.HintSize="314,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[Temp4]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[ExtractDataTable_Policy.Rows(5).Item(1).ToString]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Policy Number &quot; + Temp1]" />
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Policy Start Date &quot;+ Temp2]" />
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Policy End Date &quot; + Temp3]" />
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Policy Status &quot; + Temp4]" />
+            </Sequence>
+          </ActivityAction>
+        </ui:BrowserScope.Body>
+      </ui:BrowserScope>
+    </Sequence>
+    <Sequence DisplayName="Data Scraping" sap:VirtualizedContainerService.HintSize="436,886" sap2010:WorkflowViewState.IdRef="Sequence_6">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable_Address" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'CPMIntera Page'" sap:VirtualizedContainerService.HintSize="414,762" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="60180f0b67328966faa4c6b99ed0222a" Selector="&lt;html title='CPMInteractionPortal' /&gt;">
+        <ui:BrowserScope.Body>
+          <ActivityAction x:TypeArguments="x:Object">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+            </ActivityAction.Argument>
+            <Sequence sap:VirtualizedContainerService.HintSize="358,616" sap2010:WorkflowViewState.IdRef="Sequence_5">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="336,230" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:ExtractData NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[ExtractDataTable_Address]" DelayBetweenPagesMS="300" DisplayName="Extract Structured Data 'DIV'" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl class='content-item content-layout item-1   ' tag='div' idx='1' /&gt;&lt;webctrl class='content-inner ' tag='div' idx='1' /&gt;&lt;webctrl class='layout layout-outline layout-outline-aa_online_layout' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content layout-content-aa_review_with_labels_left content-aa_review_with_labels_left  ' tag='div' idx='1' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl class='content-inner ' tag='div' idx='1' /&gt;&lt;/row&gt;&lt;column name='Column1' attr='text' exact='1'&gt;&lt;webctrl class='content-item content-layout item-1   ' tag='div' idx='1' /&gt;&lt;webctrl class='content-inner ' tag='div' idx='1' /&gt;&lt;webctrl class='layout layout-outline layout-outline-aa_online_layout' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content layout-content-aa_review_with_labels_left content-aa_review_with_labels_left  ' tag='div' idx='1' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl class='content-inner ' tag='div' idx='1' /&gt;&lt;webctrl class='field-caption dataLabelForRead review_row_label_dataLabelForRead' tag='label' idx='1' /&gt;&lt;/column&gt;&lt;column name='Column2' attr='text' exact='1'&gt;&lt;webctrl class='content-item content-layout item-1   ' tag='div' idx='1' /&gt;&lt;webctrl class='content-inner ' tag='div' idx='1' /&gt;&lt;webctrl class='layout layout-outline layout-outline-aa_online_layout' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content layout-content-aa_review_with_labels_left content-aa_review_with_labels_left  ' tag='div' idx='1' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl class='content-inner ' tag='div' idx='1' /&gt;&lt;webctrl class='field-item dataValueRead' tag='div' idx='1' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="ExtractData_2" MaxNumberOfResults="100">
+                  <ui:ExtractData.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="38be3d06b2239c542a1021385e109d9d" Selector="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' parentid='CT' tag='DIV' /&gt;" WaitForReady="COMPLETE" />
+                  </ui:ExtractData.Target>
+                </ui:ExtractData>
+              </Sequence>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="336,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Address Line 1 &quot;+ExtractDataTable_Address.Rows(0).Item(1).ToString]" />
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="336,91" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Post Code &quot;+ExtractDataTable_Address.Rows(4).Item(1).ToString]" />
+            </Sequence>
+          </ActivityAction>
+        </ui:BrowserScope.Body>
+      </ui:BrowserScope>
+    </Sequence>
+  </Sequence>
+</Activity>

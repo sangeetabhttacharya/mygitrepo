@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Test-Suite name="UiPath Project - Test Automation" total="4" passed="3" failures="1" execution-date="05/16/2019 16:55:09" total-time="00:03:53">
+  <Result>
+    <TestScenario>Comparing the Policy Details between Cathie and CAARS</TestScenario>
+    <TestName>Comparning the Policy Details for 6356011590244993</TestName>
+    <Started>05/16/2019 16:54:08</Started>
+    <Ended>05/16/2019 16:55:09</Ended>
+    <Status>PASSED</Status>
+  </Result>
+  <Result>
+    <TestScenario>Comparing the Policy Details between Cathie and CAARS</TestScenario>
+    <TestName>Comparning the Policy Details for 6356011590245002</TestName>
+    <Started>05/16/2019 16:55:11</Started>
+    <Ended>05/16/2019 16:56:05</Ended>
+    <Status>PASSED</Status>
+  </Result>
+  <Result>
+    <TestScenario>Comparing the Policy Details between TIARA and CAARS</TestScenario>
+    <TestName>Comparning the Policy Details for 6356011168295002</TestName>
+    <Started>05/16/2019 16:56:07</Started>
+    <Ended>05/16/2019 16:57:08</Ended>
+    <Status>PASSED</Status>
+  </Result>
+  <Result>
+    <TestScenario>Comparing the Policy Details between TIARA and CAARS</TestScenario>
+    <TestName>Comparning the Policy Details for 6356015502901725</TestName>
+    <Started>05/16/2019 16:57:10</Started>
+    <Ended>05/16/2019 16:58:07</Ended>
+    <Status>
+Policy Start date is not Matching:Tiara Policy Start Date - 30/09/2018 CAARs Policy Start Date - 30/09/2010
+Customer First Name is not matching : Tiara Customer First Name -S CAARS Customer First Name -Simon</Status>
+  </Result>
+</Test-Suite>

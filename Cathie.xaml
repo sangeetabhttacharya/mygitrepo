@@ -1,0 +1,731 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Cathie" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:sd1="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="arg_membership_no" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>791,10775</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="21">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="20">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Cathie" sap:VirtualizedContainerService.HintSize="751,10655" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Boolean" Name="Newhyperlinkfound" />
+      <Variable x:TypeArguments="x:String" Name="Policystartdate" />
+      <Variable x:TypeArguments="x:String" Name="Policyexpirydate" />
+      <Variable x:TypeArguments="x:String" Name="PolicyHolderName" />
+      <Variable x:TypeArguments="x:String" Name="Title" />
+      <Variable x:TypeArguments="x:String" Name="FirstName" />
+      <Variable x:TypeArguments="x:String" Name="SurName" />
+      <Variable x:TypeArguments="x:String" Name="FullAddressLine1" />
+      <Variable x:TypeArguments="x:String" Name="AddressLine1" />
+      <Variable x:TypeArguments="x:String" Name="FullPostCode" />
+      <Variable x:TypeArguments="x:String" Name="Postcode" />
+      <Variable x:TypeArguments="x:String" Name="PolicyStatus" />
+      <Variable x:TypeArguments="x:String" Name="RegNumber" />
+      <Variable x:TypeArguments="x:String" Name="FullVehicleDetails" />
+      <Variable x:TypeArguments="x:String" Name="Make" />
+      <Variable x:TypeArguments="x:String" Name="Model" />
+      <Variable x:TypeArguments="x:String" Name="FullPolicyStatus" />
+      <Variable x:TypeArguments="x:String" Name="Temp_reg" />
+      <Variable x:TypeArguments="x:String" Name="Mileage" />
+      <Variable x:TypeArguments="x:String" Name="RegYear" />
+      <Variable x:TypeArguments="x:String" Name="status" />
+      <Variable x:TypeArguments="x:String" Name="Temp_membershipno" />
+      <Variable x:TypeArguments="sd1:DataTable" Name="ExtractDataTable_Policy" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="729,10531" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <ui:OpenBrowser UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" Hidden="False" sap:VirtualizedContainerService.HintSize="711,10304" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" NewSession="True" Private="False" Url="https://rh0161v:8443/prweb/PRServlet/FvDmu96fVVwtY4inNbRl6ZlUr3xQkT-T*/!STANDARD?">
+          <ui:OpenBrowser.Body>
+            <ActivityAction x:TypeArguments="x:Object">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="697,10205" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'INPUT  txtUserID'" EmptyField="False" sap:VirtualizedContainerService.HintSize="675,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" SendWindowMessages="False" SimulateType="True" Text="sugumar">
+                  <ui:TypeInto.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="0317444d98d7678a874d3460204be61e" Selector="&lt;webctrl id='txtUserID' tag='INPUT' /&gt;" WaitForReady="INTERACTIVE" />
+                  </ui:TypeInto.Target>
+                </ui:TypeInto>
+                <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'INPUT  txtPassword'" EmptyField="False" sap:VirtualizedContainerService.HintSize="675,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" SendWindowMessages="False" SimulateType="True" Text="pega">
+                  <ui:TypeInto.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="5c6e9b899befaf8b8dfb4ef3628e2a00" Selector="&lt;webctrl id='txtPassword' tag='INPUT' /&gt;" WaitForReady="INTERACTIVE" />
+                  </ui:TypeInto.Target>
+                </ui:TypeInto>
+                <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'BUTTON  sub'" sap:VirtualizedContainerService.HintSize="675,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="9c603d3c7765e89b33b7a8aef5dca02c" Selector="&lt;webctrl id='sub' tag='BUTTON' /&gt;" WaitForReady="INTERACTIVE" />
+                  </ui:Click.Target>
+                </ui:Click>
+                <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="675,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
+                <ui:ImageFound DisplayName="Image Exists 'chrome.exe  CPMInteract...'" Found="[Newhyperlinkfound]" sap:VirtualizedContainerService.HintSize="675,106" sap2010:WorkflowViewState.IdRef="ImageFound_1">
+                  <ui:ImageFound.Image>
+                    <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" TargetImageBase64="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" />
+                  </ui:ImageFound.Image>
+                  <ui:ImageFound.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;header&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' idx='1' parentid='RULE_KEY' tag='DIV' /&gt;" TimeoutMS="3000" WaitForReady="INTERACTIVE" />
+                  </ui:ImageFound.Target>
+                </ui:ImageFound>
+                <If Condition="[Newhyperlinkfound]" sap:VirtualizedContainerService.HintSize="675,585" sap2010:WorkflowViewState.IdRef="If_1">
+                  <If.Then>
+                    <Sequence sap:VirtualizedContainerService.HintSize="336,438" sap2010:WorkflowViewState.IdRef="Sequence_1">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'A  #'" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                        <ui:Click.CursorPosition>
+                          <ui:CursorPosition Position="Center">
+                            <ui:CursorPosition.OffsetX>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:CursorPosition.OffsetX>
+                            <ui:CursorPosition.OffsetY>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:CursorPosition.OffsetY>
+                          </ui:CursorPosition>
+                        </ui:Click.CursorPosition>
+                        <ui:Click.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="d08832612b30b782fa55fa1130bf0e68" Selector="&lt;webctrl aaname=' New' tag='A' /&gt;" WaitForReady="COMPLETE" />
+                        </ui:Click.Target>
+                      </ui:Click>
+                      <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="314,22" sap2010:WorkflowViewState.IdRef="Delay_2" />
+                      <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'SPAN'" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                        <ui:Click.CursorPosition>
+                          <ui:CursorPosition Position="Center">
+                            <ui:CursorPosition.OffsetX>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:CursorPosition.OffsetX>
+                            <ui:CursorPosition.OffsetY>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:CursorPosition.OffsetY>
+                          </ui:CursorPosition>
+                        </ui:Click.CursorPosition>
+                        <ui:Click.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="8e73854f07700d929d4355ac62af6db7" Selector="&lt;webctrl aaname='Phone Call - Inbound' parentid='pyNavigation1558521515590' tag='SPAN' /&gt;" WaitForReady="INTERACTIVE" />
+                        </ui:Click.Target>
+                      </ui:Click>
+                    </Sequence>
+                  </If.Then>
+                  <If.Else>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Warn" Message="[&quot;New Hyperlink not found&quot;]" />
+                  </If.Else>
+                </If>
+                <ui:TypeInto DelayBefore="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DelayBetweenKeys="50" DisplayName="Type Into 'INPUT  IDReferenceNo'" EmptyField="False" sap:VirtualizedContainerService.HintSize="675,134" sap2010:WorkflowViewState.IdRef="TypeInto_3" SendWindowMessages="False" SimulateType="True" Text="[arg_membership_no]">
+                  <ui:TypeInto.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="c432f868c009c181b086e852abe621d9" Selector="&lt;webctrl id='PegaGadget1Ifr' tag='IFRAME' /&gt;&lt;webctrl id='IDReferenceNo' tag='INPUT' /&gt;" WaitForReady="INTERACTIVE" />
+                  </ui:TypeInto.Target>
+                </ui:TypeInto>
+                <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'DIV'" sap:VirtualizedContainerService.HintSize="675,106" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="bf4f546893ea86f90567b958888fb646" Selector="&lt;webctrl id='PegaGadget1Ifr' tag='IFRAME' /&gt;&lt;webctrl aaname='Search' parentid='RULE_KEY' parentname='CustomerSearchCriteria_pyWorkPage_29' tag='DIV' /&gt;" WaitForReady="INTERACTIVE" />
+                  </ui:Click.Target>
+                </ui:Click>
+                <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="675,22" sap2010:WorkflowViewState.IdRef="Delay_3" />
+                <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'SPAN'" sap:VirtualizedContainerService.HintSize="675,106" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="b8292b4d66193b0f22a4535a28f9a421" Selector="&lt;webctrl id='PegaGadget1Ifr' tag='IFRAME' /&gt;&lt;webctrl parentid='$PD_ContactList$ppxResults$l1' tabindex='0' tag='SPAN' /&gt;" WaitForReady="INTERACTIVE" />
+                  </ui:Click.Target>
+                </ui:Click>
+                <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'SPAN'" sap:VirtualizedContainerService.HintSize="675,106" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="cc25b90d3e260ed37f9ee741bbe39852" Selector="&lt;webctrl id='PegaGadget1Ifr' tag='IFRAME' /&gt;&lt;webctrl aaname='Select' parentid='$PD_ContactList$ppxResults$l1' tag='DIV' /&gt;" WaitForReady="INTERACTIVE" />
+                  </ui:Click.Target>
+                </ui:Click>
+                <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="675,22" sap2010:WorkflowViewState.IdRef="Delay_4" />
+                <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'INPUT  pyWorkPagepyWork...'" sap:VirtualizedContainerService.HintSize="675,106" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="86818420b1228c26f7f89f9a2565afac" Selector="&lt;webctrl id='PegaGadget1Ifr' tag='IFRAME' /&gt;&lt;webctrl id='pyWorkPagepyWorkPartyCONTIsFirstNameVerified' tag='INPUT' /&gt;" WaitForReady="INTERACTIVE" />
+                  </ui:Click.Target>
+                </ui:Click>
+                <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'INPUT  pyWorkPagepyWork...'" sap:VirtualizedContainerService.HintSize="675,106" sap2010:WorkflowViewState.IdRef="Click_8" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="a12d1e502287b15442392b383cbc7d29" Selector="&lt;webctrl id='PegaGadget1Ifr' tag='IFRAME' /&gt;&lt;webctrl id='pyWorkPagepyWorkPartyCONTIsPostCodeVerified' tag='INPUT' /&gt;" WaitForReady="INTERACTIVE" />
+                  </ui:Click.Target>
+                </ui:Click>
+                <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'INPUT  pyWorkPagepyWork...'" sap:VirtualizedContainerService.HintSize="675,106" sap2010:WorkflowViewState.IdRef="Click_9" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="d159ec28f60cc45969ebf92d68437eb6" Selector="&lt;webctrl id='PegaGadget1Ifr' tag='IFRAME' /&gt;&lt;webctrl id='pyWorkPagepyWorkPartyCONTIsAddressLine1Verified' tag='INPUT' /&gt;" WaitForReady="INTERACTIVE" />
+                  </ui:Click.Target>
+                </ui:Click>
+                <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'DIV'" sap:VirtualizedContainerService.HintSize="675,106" sap2010:WorkflowViewState.IdRef="Click_10" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="b5b887f021d62697bc8d3705584ae534" Selector="&lt;webctrl id='PegaGadget1Ifr' tag='IFRAME' /&gt;&lt;webctrl aaname='Submit' parentid='RULE_KEY' parentname='CPMContactVerified_pyWorkPage_43' tag='DIV' /&gt;" WaitForReady="INTERACTIVE" />
+                  </ui:Click.Target>
+                </ui:Click>
+                <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="675,22" sap2010:WorkflowViewState.IdRef="Delay_5" />
+                <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'INPUT  InterimSearch'" EmptyField="False" sap:VirtualizedContainerService.HintSize="675,134" sap2010:WorkflowViewState.IdRef="TypeInto_5" SendWindowMessages="False" SimulateType="False" Text="[arg_membership_no]">
+                  <ui:TypeInto.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="5e3c05daa8bd3fe10e1645584c86c40d" Selector="&lt;webctrl id='PegaGadget1Ifr' tag='IFRAME' /&gt;&lt;webctrl aaname='Search policies' id='InterimSearch' tag='INPUT' /&gt;" WaitForReady="INTERACTIVE" />
+                  </ui:TypeInto.Target>
+                </ui:TypeInto>
+                <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'DIV'" sap:VirtualizedContainerService.HintSize="675,106" sap2010:WorkflowViewState.IdRef="Click_14" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="331efd0153b6df2b161176542ab86bf6" Selector="&lt;webctrl id='PegaGadget1Ifr' tag='IFRAME' /&gt;&lt;webctrl aaname='Search' parentid='RULE_KEY' parentname='ShowProductDetails_pyWorkPage_2' tag='DIV' /&gt;" WaitForReady="INTERACTIVE" />
+                  </ui:Click.Target>
+                </ui:Click>
+                <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="675,22" sap2010:WorkflowViewState.IdRef="Delay_8" />
+                <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'A  #'" sap:VirtualizedContainerService.HintSize="675,106" sap2010:WorkflowViewState.IdRef="Click_11" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="94a1d7d225f5ea49e98dd9e48e6995c2" Selector="&lt;webctrl id='PegaGadget1Ifr' tag='IFRAME' /&gt;&lt;webctrl parentid='RULE_KEY' tag='A' /&gt;" WaitForReady="INTERACTIVE" />
+                  </ui:Click.Target>
+                </ui:Click>
+                <Delay Duration="00:00:07" sap:VirtualizedContainerService.HintSize="675,22" sap2010:WorkflowViewState.IdRef="Delay_6" />
+                <Sequence DisplayName="Data Scraping" sap:VirtualizedContainerService.HintSize="675,900" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'CPMIntera Page'" sap:VirtualizedContainerService.HintSize="414,776" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="1ca2dd326be5250d1cd6973339493a96" Selector="&lt;html title='CPMInteractionPortal' /&gt;">
+                    <ui:BrowserScope.Body>
+                      <ActivityAction x:TypeArguments="x:Object">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="336,630" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:ExtractData NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[ExtractDataTable_Policy]" DelayBetweenPagesMS="300" DisplayName="Extract Structured Data 'DIV  RULE_KEY'" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl class='layout layout-none' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content content-layout-group layout-group-accordion' tag='div' idx='1' /&gt;&lt;webctrl class='layout active multiactive count-8' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content layout-content-default content-default  ' tag='div' idx='1' /&gt;&lt;webctrl class='content-item content-sub_section item-1   ' tag='div' idx='1' /&gt;&lt;webctrl class='content-inner ' tag='div' idx='1' /&gt;&lt;webctrl class='sectionDivStyle' tag='div' idx='1' /&gt;&lt;webctrl class='layout layout-none' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content layout-content-inline_grid_double content-inline_grid_double  ' tag='div' idx='1' /&gt;&lt;webctrl class='content-item content-layout item-1 remove-top-spacing   ' tag='div' idx='1' /&gt;&lt;webctrl class='content-inner ' tag='div' idx='1' /&gt;&lt;webctrl class='layout layout-none' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content layout-content-default content-default  ' tag='div' idx='1' /&gt;&lt;webctrl class='content-item content-layout item-1   ' tag='div' idx='1' /&gt;&lt;webctrl class='content-inner ' tag='div' idx='1' /&gt;&lt;webctrl class='layout layout-outline layout-outline-aa_online_layout' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content layout-content-aa_review_with_labels_left content-aa_review_with_labels_left  ' tag='div' idx='1' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl class='content-inner ' tag='div' idx='1' /&gt;&lt;/row&gt;&lt;column name='Column1' attr='text' exact='1'&gt;&lt;webctrl class='layout layout-none' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content content-layout-group layout-group-accordion' tag='div' idx='1' /&gt;&lt;webctrl class='layout active multiactive count-8' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content layout-content-default content-default  ' tag='div' idx='1' /&gt;&lt;webctrl class='content-item content-sub_section item-1   ' tag='div' idx='1' /&gt;&lt;webctrl class='content-inner ' tag='div' idx='1' /&gt;&lt;webctrl class='sectionDivStyle' tag='div' idx='1' /&gt;&lt;webctrl class='layout layout-none' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content layout-content-inline_grid_double content-inline_grid_double  ' tag='div' idx='1' /&gt;&lt;webctrl class='content-item content-layout item-1 remove-top-spacing   ' tag='div' idx='1' /&gt;&lt;webctrl class='content-inner ' tag='div' idx='1' /&gt;&lt;webctrl class='layout layout-none' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content layout-content-default content-default  ' tag='div' idx='1' /&gt;&lt;webctrl class='content-item content-layout item-1   ' tag='div' idx='1' /&gt;&lt;webctrl class='content-inner ' tag='div' idx='1' /&gt;&lt;webctrl class='layout layout-outline layout-outline-aa_online_layout' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content layout-content-aa_review_with_labels_left content-aa_review_with_labels_left  ' tag='div' idx='1' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl class='content-inner ' tag='div' idx='1' /&gt;&lt;webctrl class='field-caption dataLabelForRead review_row_label_dataLabelForRead' tag='label' idx='1' /&gt;&lt;/column&gt;&lt;column name='Column2' attr='text' exact='1'&gt;&lt;webctrl class='layout layout-none' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content content-layout-group layout-group-accordion' tag='div' idx='1' /&gt;&lt;webctrl class='layout active multiactive count-8' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content layout-content-default content-default  ' tag='div' idx='1' /&gt;&lt;webctrl class='content-item content-sub_section item-1   ' tag='div' idx='1' /&gt;&lt;webctrl class='content-inner ' tag='div' idx='1' /&gt;&lt;webctrl class='sectionDivStyle' tag='div' idx='1' /&gt;&lt;webctrl class='layout layout-none' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content layout-content-inline_grid_double content-inline_grid_double  ' tag='div' idx='1' /&gt;&lt;webctrl class='content-item content-layout item-1 remove-top-spacing   ' tag='div' idx='1' /&gt;&lt;webctrl class='content-inner ' tag='div' idx='1' /&gt;&lt;webctrl class='layout layout-none' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content layout-content-default content-default  ' tag='div' idx='1' /&gt;&lt;webctrl class='content-item content-layout item-1   ' tag='div' idx='1' /&gt;&lt;webctrl class='content-inner ' tag='div' idx='1' /&gt;&lt;webctrl class='layout layout-outline layout-outline-aa_online_layout' tag='div' idx='1' /&gt;&lt;webctrl class='layout-body clearfix' tag='div' idx='1' /&gt;&lt;webctrl class='content layout-content-aa_review_with_labels_left content-aa_review_with_labels_left  ' tag='div' idx='1' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl class='content-inner ' tag='div' idx='1' /&gt;&lt;webctrl class='field-item dataValueRead' tag='div' idx='1' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="ExtractData_1" MaxNumberOfResults="100">
+                            <ui:ExtractData.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="9256c406bf5e2d7a266416dd81cc3390" Selector="&lt;webctrl id='RULE_KEY' name='BASE_REF' parentid='INNERDIV-SubSectionCPMCompositesContainerBB' tag='DIV' /&gt;" WaitForReady="COMPLETE" />
+                            </ui:ExtractData.Target>
+                          </ui:ExtractData>
+                          <Assign sap:VirtualizedContainerService.HintSize="314,60" sap2010:WorkflowViewState.IdRef="Assign_15">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[Temp_membershipno]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[ExtractDataTable_Policy.Rows(0).Item(1).ToString]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="314,60" sap2010:WorkflowViewState.IdRef="Assign_16">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[Policystartdate]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[ExtractDataTable_Policy.Rows(3).Item(1).ToString]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="314,60" sap2010:WorkflowViewState.IdRef="Assign_17">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[Policyexpirydate]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[ExtractDataTable_Policy.Rows(4).Item(1).ToString]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="314,60" sap2010:WorkflowViewState.IdRef="Assign_18">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[PolicyStatus]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[ExtractDataTable_Policy.Rows(5).Item(1).ToString]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:BrowserScope.Body>
+                  </ui:BrowserScope>
+                </Sequence>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="675,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Policy Start Date&quot;+Policystartdate]" />
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="675,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Expiry Date&quot; + Policyexpirydate]" />
+                <ui:GetOCRText Text="{x:Null}" WordsInfo="{x:Null}" DisplayName="Get OCR Text 'DIV'" sap:VirtualizedContainerService.HintSize="675,168" sap2010:WorkflowViewState.IdRef="GetOCRText_3">
+                  <ui:GetOCRText.OCREngine>
+                    <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
+                      <ActivityFunc.Argument>
+                        <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                      </ActivityFunc.Argument>
+                      <ui:GoogleOCR FilterRegion="{x:Null}" AllowedCharacters="" DeniedCharacters="" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_3" Image="[Image]" Invert="False" Language="eng" Profile="Screen" Scale="2" Text="[PolicyHolderName]" />
+                    </ActivityFunc>
+                  </ui:GetOCRText.OCREngine>
+                  <ui:GetOCRText.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="28fc3131991895a11fcd9a3f1ca1c406" Selector="&lt;webctrl id='PegaGadget1Ifr' tag='IFRAME' /&gt;&lt;webctrl css-selector='body&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' parentid='CT' tag='DIV' /&gt;" WaitForReady="INTERACTIVE" />
+                  </ui:GetOCRText.Target>
+                </ui:GetOCRText>
+                <Assign sap:VirtualizedContainerService.HintSize="675,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[Title]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[Split(PolicyHolderName," ")(3).Trim]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign sap:VirtualizedContainerService.HintSize="675,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[FirstName]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[Split(PolicyHolderName," ")(4).Trim]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign sap:VirtualizedContainerService.HintSize="675,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[SurName]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[Split(PolicyHolderName," ")(5).Trim]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="675,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Title-&quot;+Title]" />
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="675,91" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Firstname - &quot;+FirstName]" />
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="675,91" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Sur name - &quot;+SurName]" />
+                <ui:GetOCRText Text="{x:Null}" WordsInfo="{x:Null}" DisplayName="Get OCR Text 'DIV'" sap:VirtualizedContainerService.HintSize="675,168" sap2010:WorkflowViewState.IdRef="GetOCRText_4">
+                  <ui:GetOCRText.OCREngine>
+                    <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
+                      <ActivityFunc.Argument>
+                        <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                      </ActivityFunc.Argument>
+                      <ui:GoogleOCR FilterRegion="{x:Null}" AllowedCharacters="" DeniedCharacters="" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_4" Image="[Image]" Invert="False" Language="eng" Profile="Screen" Scale="2" Text="[FullAddressLine1]" />
+                    </ActivityFunc>
+                  </ui:GetOCRText.OCREngine>
+                  <ui:GetOCRText.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="3c978d1e57b3b77f24ab3bdd827637ec" Selector="&lt;webctrl id='PegaGadget1Ifr' tag='IFRAME' /&gt;&lt;webctrl css-selector='body&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' idx='4' parentid='CT' tag='DIV' /&gt;" WaitForReady="INTERACTIVE" />
+                  </ui:GetOCRText.Target>
+                </ui:GetOCRText>
+                <Assign sap:VirtualizedContainerService.HintSize="675,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[AddressLine1]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[Split(FullAddressLine1,"1")(1).Trim]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="675,91" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Address Line 1-&quot;+AddressLine1]" />
+                <ui:GetOCRText Text="{x:Null}" WordsInfo="{x:Null}" DisplayName="Get OCR Text 'DIV'" sap:VirtualizedContainerService.HintSize="675,168" sap2010:WorkflowViewState.IdRef="GetOCRText_5">
+                  <ui:GetOCRText.OCREngine>
+                    <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
+                      <ActivityFunc.Argument>
+                        <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                      </ActivityFunc.Argument>
+                      <ui:GoogleOCR FilterRegion="{x:Null}" AllowedCharacters="" DeniedCharacters="" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_5" Image="[Image]" Invert="False" Language="eng" Profile="Screen" Scale="3" Text="[FullPostCode]" />
+                    </ActivityFunc>
+                  </ui:GetOCRText.OCREngine>
+                  <ui:GetOCRText.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="619c8a8c22dfe4392feb82329c37fadf" Selector="&lt;webctrl id='PegaGadget1Ifr' tag='IFRAME' /&gt;&lt;webctrl css-selector='body&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' idx='9' parentid='CT' tag='DIV' /&gt;" WaitForReady="INTERACTIVE" />
+                  </ui:GetOCRText.Target>
+                </ui:GetOCRText>
+                <Assign sap:VirtualizedContainerService.HintSize="675,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[Postcode]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[Split(FullPostCode," ")(2)+" "+Split(FullPostCode," ")(3)]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="675,91" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Post Code - &quot;+Postcode]" />
+                <ui:GetOCRText Text="{x:Null}" WordsInfo="{x:Null}" DisplayName="Get OCR Text 'DIV'" sap:VirtualizedContainerService.HintSize="675,168" sap2010:WorkflowViewState.IdRef="GetOCRText_6">
+                  <ui:GetOCRText.OCREngine>
+                    <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
+                      <ActivityFunc.Argument>
+                        <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                      </ActivityFunc.Argument>
+                      <ui:GoogleOCR FilterRegion="{x:Null}" AllowedCharacters="" DeniedCharacters="" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_6" Image="[Image]" Invert="False" Language="eng" Profile="Screen" Scale="2" Text="[FullPolicyStatus]" />
+                    </ActivityFunc>
+                  </ui:GetOCRText.OCREngine>
+                  <ui:GetOCRText.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="b47a794739844ac19b228a8fd481823f" Selector="&lt;webctrl id='PegaGadget1Ifr' tag='IFRAME' /&gt;&lt;webctrl css-selector='body&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' idx='6' parentid='EXPAND-OUTERFRAME' tag='DIV' /&gt;" WaitForReady="INTERACTIVE" />
+                  </ui:GetOCRText.Target>
+                </ui:GetOCRText>
+                <Assign sap:VirtualizedContainerService.HintSize="675,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[PolicyStatus]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[Split(FullPolicyStatus,"Status")(1)]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="675,91" sap2010:WorkflowViewState.IdRef="LogMessage_17" Level="Info" Message="[&quot;Policy Status-&quot;+PolicyStatus]" />
+                <ui:SendHotkey DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Send Hotkey 'chrome.exe CPMInteracti...'" EmptyField="False" sap:VirtualizedContainerService.HintSize="675,154" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="pgdn" KeyModifiers="None" SendWindowMessages="False" SpecialKey="True">
+                  <ui:SendHotkey.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="7c46aca0a73aaf6d9b9e12b59c9fb288" WaitForReady="INTERACTIVE" />
+                  </ui:SendHotkey.Target>
+                </ui:SendHotkey>
+                <ui:SendHotkey DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Send Hotkey 'chrome.exe CPMInteracti...'" EmptyField="False" sap:VirtualizedContainerService.HintSize="675,154" sap2010:WorkflowViewState.IdRef="SendHotkey_2" Key="pgdn" KeyModifiers="None" SendWindowMessages="False" SpecialKey="True">
+                  <ui:SendHotkey.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="7c46aca0a73aaf6d9b9e12b59c9fb288" WaitForReady="INTERACTIVE" />
+                  </ui:SendHotkey.Target>
+                </ui:SendHotkey>
+                <Sequence sap:VirtualizedContainerService.HintSize="675,1786" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:GetOCRText Text="{x:Null}" WordsInfo="{x:Null}" DisplayName="Get OCR Text 'DIV'" sap:VirtualizedContainerService.HintSize="314,168" sap2010:WorkflowViewState.IdRef="GetOCRText_8">
+                    <ui:GetOCRText.OCREngine>
+                      <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
+                        <ActivityFunc.Argument>
+                          <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                        </ActivityFunc.Argument>
+                        <ui:GoogleOCR FilterRegion="{x:Null}" AllowedCharacters="" DeniedCharacters="" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_8" Image="[Image]" Invert="False" Language="eng" Profile="Screen" Scale="2" Text="[Temp_reg]" />
+                      </ActivityFunc>
+                    </ui:GetOCRText.OCREngine>
+                    <ui:GetOCRText.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="08807150419c0524d4cd27b373c304fb" Selector="&lt;webctrl id='PegaGadget1Ifr' tag='IFRAME' /&gt;&lt;webctrl css-selector='body&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' idx='2' parentid='CT' tag='DIV' /&gt;" WaitForReady="INTERACTIVE" />
+                    </ui:GetOCRText.Target>
+                  </ui:GetOCRText>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="Info" Message="[&quot;Temp Reg Number - &quot;+Temp_reg]" />
+                  <Assign sap:VirtualizedContainerService.HintSize="314,60" sap2010:WorkflowViewState.IdRef="Assign_14">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[RegNumber]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[Split((Split(Temp_reg,",")(3).Trim)," ")(0)]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Reg Number - &quot;+RegNumber]" />
+                  <ui:GetOCRText Text="{x:Null}" WordsInfo="{x:Null}" DisplayName="Get OCR Text 'DIV'" sap:VirtualizedContainerService.HintSize="314,168" sap2010:WorkflowViewState.IdRef="GetOCRText_7">
+                    <ui:GetOCRText.OCREngine>
+                      <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
+                        <ActivityFunc.Argument>
+                          <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                        </ActivityFunc.Argument>
+                        <ui:GoogleOCR FilterRegion="{x:Null}" AllowedCharacters="" DeniedCharacters="" DisplayName="Tesseract OCR" ExtractWords="True" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_7" Image="[Image]" Invert="False" Language="eng" Profile="Screen" Scale="3" Text="[FullVehicleDetails]" />
+                      </ActivityFunc>
+                    </ui:GetOCRText.OCREngine>
+                    <ui:GetOCRText.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="e442e33ac4697b306b74638cdd4fcd33" Selector="&lt;webctrl id='PegaGadget1Ifr' tag='IFRAME' /&gt;&lt;webctrl css-selector='body&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' idx='6' parentid='RULE_KEY' parentname='BASE_REF' tag='DIV' /&gt;" WaitForReady="INTERACTIVE" />
+                    </ui:GetOCRText.Target>
+                  </ui:GetOCRText>
+                  <Assign sap:VirtualizedContainerService.HintSize="314,60" sap2010:WorkflowViewState.IdRef="Assign_10">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[Make]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[Split(FullVehicleDetails,",")(1).Trim]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign sap:VirtualizedContainerService.HintSize="314,60" sap2010:WorkflowViewState.IdRef="Assign_11">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[Model]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[Split(FullVehicleDetails,",")(2).Trim]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign sap:VirtualizedContainerService.HintSize="314,60" sap2010:WorkflowViewState.IdRef="Assign_12">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[RegYear]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[Split(FullVehicleDetails,",")(0).Trim]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign sap:VirtualizedContainerService.HintSize="314,60" sap2010:WorkflowViewState.IdRef="Assign_13">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[Mileage]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[Split(FullVehicleDetails,"Mileage")(1).Trim]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot;Make - &quot;+Make]" />
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[&quot;Model - &quot;+Model]" />
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Info" Message="[&quot;Reg Year - &quot;+RegYear]" />
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Info" Message="[&quot;Mileage - &quot;+Mileage]" />
+                </Sequence>
+                <Sequence sap:VirtualizedContainerService.HintSize="675,1148" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:OpenBrowser UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Open Browser" Hidden="False" sap:VirtualizedContainerService.HintSize="450,1024" sap2010:WorkflowViewState.IdRef="OpenBrowser_2" NewSession="True" Private="False" Url="http://caars-uat/">
+                    <ui:OpenBrowser.Body>
+                      <ActivityAction x:TypeArguments="x:Object">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="436,925" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                          <Sequence.Variables>
+                            <Variable x:TypeArguments="x:String" Name="VehicleOffRisk" />
+                            <Variable x:TypeArguments="x:String" Name="url" />
+                          </Sequence.Variables>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'Chrome.exe '" sap:VirtualizedContainerService.HintSize="414,292" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="9cdb4d0a4eb7c12acc032a31cf80be7d" Selector="&lt;wnd app='iexplore.exe' cls='IEFrame' title='http://caars-uat/ - Internet Explorer' /&gt;">
+                            <ui:WindowScope.Body>
+                              <ActivityAction x:TypeArguments="x:Object">
+                                <ActivityAction.Argument>
+                                  <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                                </ActivityAction.Argument>
+                                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="222,146" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="MaximizeWindow_1" />
+                                </Sequence>
+                              </ActivityAction>
+                            </ui:WindowScope.Body>
+                          </ui:WindowScope>
+                          <ui:TypeInto DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DelayBefore="500" DelayBetweenKeys="30" DisplayName="Type Into 'INPUT  MembershipNumber'" EmptyField="False" sap:VirtualizedContainerService.HintSize="414,134" sap2010:WorkflowViewState.IdRef="TypeInto_4" SendWindowMessages="False" SimulateType="False" Text="[arg_membership_no]">
+                            <ui:TypeInto.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="e4e911b520000c37479df5d7c6b99710" Selector="&lt;webctrl id='MembershipNumber' tag='INPUT' /&gt;" WaitForReady="INTERACTIVE" />
+                            </ui:TypeInto.Target>
+                          </ui:TypeInto>
+                          <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'INPUT'" sap:VirtualizedContainerService.HintSize="414,106" sap2010:WorkflowViewState.IdRef="Click_12" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+                            <ui:Click.CursorPosition>
+                              <ui:CursorPosition Position="Center">
+                                <ui:CursorPosition.OffsetX>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetX>
+                                <ui:CursorPosition.OffsetY>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetY>
+                              </ui:CursorPosition>
+                            </ui:Click.CursorPosition>
+                            <ui:Click.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="33c79341c13347599552f8bb114843b8" Selector="&lt;webctrl name='Search' tag='INPUT' /&gt;" WaitForReady="INTERACTIVE" />
+                            </ui:Click.Target>
+                          </ui:Click>
+                          <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="414,22" sap2010:WorkflowViewState.IdRef="Delay_7" />
+                          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CAARS_POLICY workflow" sap:VirtualizedContainerService.HintSize="414,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="CAARS_POLICY.xaml">
+                            <ui:InvokeWorkflowFile.Arguments>
+                              <InArgument x:TypeArguments="x:String" x:Key="arg_PolicyStartDate">[Policystartdate]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="arg_PolicyExpiryDate">[Policyexpirydate]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="arg_cust_fn">[FirstName]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="arg_cust_ln">[SurName]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="arg_address">[AddressLine1]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="arg_postcode">[Postcode]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="arg_policystatus">[PolicyStatus]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="arg_Title">[Title]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="arg_vrn">[RegNumber]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="arg_dateofreg">[RegYear]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="arg_make">[Make]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="arg_model">[Model]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="arg_mileage">[Mileage]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="arg_pol_no">[arg_membership_no]</InArgument>
+                            </ui:InvokeWorkflowFile.Arguments>
+                          </ui:InvokeWorkflowFile>
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:OpenBrowser.Body>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:OpenBrowser>
+                </Sequence>
+              </Sequence>
+            </ActivityAction>
+          </ui:OpenBrowser.Body>
+        </ui:OpenBrowser>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="715,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Error" Message="[&quot;Exception Occured in Cathie / CAARS Verification &quot; + exception.ToString]" />
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+      <TryCatch.Finally>
+        <Sequence sap:VirtualizedContainerService.HintSize="336,570" sap2010:WorkflowViewState.IdRef="Sequence_8">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'A  #'" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="Click_13" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+            <ui:Click.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:Click.CursorPosition>
+            <ui:Click.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="8b8fdd09688b82486766daa8be12dc41" Selector="&lt;html app='chrome.exe' omit:htmlwindowname='Composite_HACDDA20782297F948EAF499DF639D4EC' title='CPMInteractionPortal' /&gt;&lt;webctrl aaname='Logout' tag='A' /&gt;" WaitForReady="INTERACTIVE" />
+            </ui:Click.Target>
+          </ui:Click>
+          <ui:SendHotkey DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Send Hotkey 'chrome.exe Chrome'" EmptyField="False" sap:VirtualizedContainerService.HintSize="314,154" sap2010:WorkflowViewState.IdRef="SendHotkey_3" Key="enter" KeyModifiers="None" SendWindowMessages="False" SpecialKey="True">
+            <ui:SendHotkey.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="21ed42d1c99b0898b876a10918f350c6" Selector="&lt;html app='chrome.exe' title='CPMInteractionPortal' /&gt;" WaitForReady="INTERACTIVE" />
+            </ui:SendHotkey.Target>
+          </ui:SendHotkey>
+          <ui:CloseWindow TimeoutMS="{x:Null}" UseWindow="{x:Null}" DisplayName="Close Window 'chrome.exe You'" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="CloseWindow_1" InformativeScreenshot="4a3315ddb23d26f726552ef8d0dd3ab3" Selector="&lt;html app='chrome.exe' omit:htmlwindowname='Composite_HF2D4C26BE04911C22BC95D4DC5E5724C' title='You are logged out.' /&gt;" WaitForReady="INTERACTIVE" />
+        </Sequence>
+      </TryCatch.Finally>
+    </TryCatch>
+  </Sequence>
+</Activity>
