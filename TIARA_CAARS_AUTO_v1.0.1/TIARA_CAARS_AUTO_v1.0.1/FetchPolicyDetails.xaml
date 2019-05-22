@@ -1,0 +1,634 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="FetchCustomerdetails" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="arg_membership" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>835,9854</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="FetchCustomerdetails" sap:VirtualizedContainerService.HintSize="795,9774" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="T_Customername" />
+      <Variable x:TypeArguments="x:String" Name="T_MembershipType" />
+      <Variable x:TypeArguments="x:String" Name="T_MemberDetails" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="Temp_PolicyStartDate" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="T_customer_dob" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="T_NopeopleCovered" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="Temp_MembershipType" />
+      <Variable x:TypeArguments="x:String" Name="Temp_Title" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="T_VRN" />
+      <Variable x:TypeArguments="x:String" Name="T_Vehicle_Make" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="Temp_Vehcile_Make" />
+      <Variable x:TypeArguments="x:String" Name="T_Vehicle_Model" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="T_CRN_REGDATE" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="T_Vehicle_Mileage" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="Hosue_name" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="Houseno" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="Stree" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="T_PostCode" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="T_AddressLine1" />
+      <Variable x:TypeArguments="x:String" Name="PolicyStartDate" />
+      <Variable x:TypeArguments="x:String" Name="PolicyExpiryDate" />
+      <Variable x:TypeArguments="x:String" Name="PolicyStatus" />
+      <Variable x:TypeArguments="x:String" Name="Customer_Forename" />
+      <Variable x:TypeArguments="x:String" Name="Customer_Surname" />
+      <Variable x:TypeArguments="x:String" Name="Customer_Title" />
+      <Variable x:TypeArguments="x:String" Name="NewOutpu" />
+      <Variable x:TypeArguments="x:String" Name="PolicyNumber" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="773,9650" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <Sequence sap:VirtualizedContainerService.HintSize="755,9423" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'iexplore.exe PROD'" sap:VirtualizedContainerService.HintSize="733,7849" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="18c8b6a184cb5ee431a27119736f1402" Selector="&lt;wnd app='iexplore.exe' cls='IEFrame' title='PROD Mirror on AAMORPHEUS - Internet Explorer' /&gt;">
+            <ui:WindowScope.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="719,7703" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:Boolean" Name="HeadlineFound" />
+                    <Variable x:TypeArguments="x:Boolean" Name="Information" />
+                    <Variable x:TypeArguments="x:Boolean" Name="Warning_found" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:ImageFound DisplayName="Image Exists 'iexplore.exe'" Found="[HeadlineFound]" sap:VirtualizedContainerService.HintSize="697,106" sap2010:WorkflowViewState.IdRef="ImageFound_1">
+                    <ui:ImageFound.Image>
+                      <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAqoAAAAZCAYAAAD5RAyYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJLSURBVHhe7dxtjppAAIBhjlTPZHqobjxGj2E0vYk3oAzjuMMwIFpUmjwkT5wPYP++YcXmcrm0AACwNX2o/vr9BwAANmUyVE/ntj18ndqm6fw4xM+m7ddr5wMAwJpGoRoDtW13X/s+VJMQqSlcxSoAAK82CtU+TM+H6BapMVR3tyeru8E1AACwtkGo7n/u45PUa6iGMI2huh85fB0GNwIAgDUNQrVpmu9I7YJ1GKfNXYMbF/N76/8iv+fUGACA/0s1VGOkNm15nM7h+6mn62x4lFE4FYmviMf8nq+4PwAA7zcK1RCpZaiGOA3/6k9PV8MRv6sav7sa58+Fapgn+frSvTTO1+fG4TNfz/en9gAAeL9RqIYXpfJQzSO1y9Hr5zqhOnfN0r0wntvLx0vOq80BAHi/QajmT01DrJWRml6sqh212JuSn1Nek89zS69bMn5kDwCAzxiEar/QRVoK1TxSgzAOa91gaCJU83ltPf6tofLc2l7tvEfGtb1Sfi4AAO83CtV+8RqqZaTeQrVylHE3FXv5+lwQzt1v6d4z1wAAsA3VUI1PUmOglvp4DXvJ9ZgLwan1uWvK8bN7tfEjewAAfEY1VPuNLtbSU9QQqEH5RPX7hapgWezVzkvy9XwvjZfsLRlPzZN8HQCAz7gbquEFqkGkdutJ/ua/wAMAYE13QzWP1PLH/lOkxrFQBQBgPXdC9TG1+wAAwDMmQxUAAD6pD9Xj8QgAAJsQ+jQQqgAAbIpQBQBgk4QqAACbJFQBANgkoQoAwCbFUL20fwFx/uwguDVcOAAAAABJRU5ErkJggg==" />
+                    </ui:ImageFound.Image>
+                    <ui:ImageFound.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" TimeoutMS="3000" WaitForReady="INTERACTIVE" />
+                    </ui:ImageFound.Target>
+                  </ui:ImageFound>
+                  <If Condition="[HeadlineFound]" sap:VirtualizedContainerService.HintSize="697,253" sap2010:WorkflowViewState.IdRef="If_4">
+                    <If.Then>
+                      <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Image 'iexplore.exe'" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="ClickImage_1" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False">
+                        <ui:ClickImage.CursorPosition>
+                          <ui:CursorPosition Position="Center">
+                            <ui:CursorPosition.OffsetX>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:CursorPosition.OffsetX>
+                            <ui:CursorPosition.OffsetY>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:CursorPosition.OffsetY>
+                          </ui:CursorPosition>
+                        </ui:ClickImage.CursorPosition>
+                        <ui:ClickImage.Image>
+                          <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFkAAAAUCAYAAADmzZEdAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADNSURBVFhH7ZCBCcMwDAS9rrfKQN7Cg6S4oKIqsgPirabwgQO/XhjnSmvtHF/vnWziS/I4EzyUnAAlJ0DJCVByAnDJpZQL3h6C3fejgEr2fhotQt+FvnsXMMkZP/wvUi3pkmXP29cz20vWc3222XbebLXjdVFSJdudWZbZrL/LMpv10RzlkZKfmqNQspMt0keh5EVGAZM88B6pZ7b/ZZbzrPdyFKjkgTxMs+q9bpbtzPZ32c5WvddFgUsmVyg5gY/k4zjIJt6Sa61kG/V8AaueK/+YzFA7AAAAAElFTkSuQmCC" />
+                        </ui:ClickImage.Image>
+                        <ui:ClickImage.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" WaitForReady="INTERACTIVE" />
+                        </ui:ClickImage.Target>
+                      </ui:ClickImage>
+                    </If.Then>
+                    <If.Else>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_30" Level="Info" Message="[&quot;No Head Line Found&quot;]" />
+                    </If.Else>
+                  </If>
+                  <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="697,22" sap2010:WorkflowViewState.IdRef="Delay_2" />
+                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="697,308" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                    <ui:CommentOut.Body>
+                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="336,230" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:ImageFound DisplayName="Image Exists 'iexplore.exe'" Found="[Information]" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="ImageFound_2">
+                          <ui:ImageFound.Image>
+                            <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAYcAAAAhCAYAAAAyLGc5AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAK6SURBVHhe7dvRrdswDIXhjNTMFHSoBh6jcyToJtnANSXTpSlSVl9cXPc38MESRflRB77Ovc3L9fl8AADYbOHw4+cvAACKbji83vM8PV/z7bb4NtX7skPqUT8A4BrCcKihMM/356OEg5Jg0LAgIADgusJwKGHwnqotGGo43Lc3iPtuDwDgOppweHx/1DeGNRwkDGo4PBrTc9o9DABwDU043JbXgy0YlpDYB8Lt0O7hZu7Xoro+w7K9vqe3ZvkeO+/Vo72ZqN/vidZ8rVcHgLOk4VCDoSzvrtdbvje81tn+8oeancvYr2s9Gkf8+tE8qss42hfV7N2L6tkzevOR5wDA2cJwkGDw4SCBIH9G0rcIueq3h/otos7zw1DHIz2RbG1kv+/xfVnN3r2obmsj+3Tse7O9AHCWMBzkY7MNBxsMSwSs968bDr27yuoqqtvayD4d+95sLwCcpQkH+3Ygh5QPBv04HV29Q250bGnd92V1u9eK+rO7H0fzkVq07usjYwD4F5pwKMXlcNJwsMEgZCy1ZbAnq8vdPyca23mvx8rWevujPVrL7jr2dM329GrRuq/7Hp1newHgLOVU9+FQFtZw8MGwhUNwZYedH9t5r8fK1o72+5rOs7sfR/ORWrTu675H59leADhLGg71jaGGglcCQ9bUemWHnR/b2lGP5deP5lHNzqNx9IyoHvUd9Yw+I6oDwJnKyR6FQ1ksB1V9W5BQEP7N4c9HaZEfftmBN9JjSY+K1nzN14/GI8+I5r2aitZ8rVcHgLMMhYN8hN4Fw1JX9hdLHGoAcA1D4WCDwf8DnAZDHRMOAHAFA+Hwd6LnAAC+lm44AAD+T1s4AACgCAcAQINwAAA0CAcAQINwAAA0CAcAQINwAAA0CAcAQINwAAA0CAcAQINwAAA0CAcAQINwAAA0CAcAgPOZfwPWuIJfa18swQAAAABJRU5ErkJggg==" />
+                          </ui:ImageFound.Image>
+                          <ui:ImageFound.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" TimeoutMS="3000" WaitForReady="INTERACTIVE" />
+                          </ui:ImageFound.Target>
+                        </ui:ImageFound>
+                      </Sequence>
+                    </ui:CommentOut.Body>
+                  </ui:CommentOut>
+                  <If Condition="[Information]" sap:VirtualizedContainerService.HintSize="697,253" sap2010:WorkflowViewState.IdRef="If_5">
+                    <If.Then>
+                      <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Image 'iexplore.exe'" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="ClickImage_2" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False">
+                        <ui:ClickImage.CursorPosition>
+                          <ui:CursorPosition Position="Center">
+                            <ui:CursorPosition.OffsetX>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:CursorPosition.OffsetX>
+                            <ui:CursorPosition.OffsetY>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:CursorPosition.OffsetY>
+                          </ui:CursorPosition>
+                        </ui:ClickImage.CursorPosition>
+                        <ui:ClickImage.Image>
+                          <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEIAAAAWCAYAAAB0S0oJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACFSURBVFhH7dLRCcAgDEXR7D9FdnOBbGBbeEoaxD+j4CtcqrU/OSj1fUopV6eqtUOY2bURAhECEQIRAhECEQIRAqVBiEhv9m1XqTdiNPQJCF/pEP4d123v82crOwpiNHgWxhYIvyYEIf776yDa0HHwOKj/L56tLPVGnBwhECEQIRAhkKrWB+iV/vzfTVVZAAAAAElFTkSuQmCC" />
+                        </ui:ClickImage.Image>
+                        <ui:ClickImage.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" WaitForReady="INTERACTIVE" />
+                        </ui:ClickImage.Target>
+                      </ui:ClickImage>
+                    </If.Then>
+                    <If.Else>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_31" Level="Info" Message="[&quot;No Information Alert&quot;]" />
+                    </If.Else>
+                  </If>
+                  <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="697,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
+                  <ui:ImageFound DisplayName="Image Exists 'iexplore.exe'" Found="[Warning_found]" sap:VirtualizedContainerService.HintSize="697,106" sap2010:WorkflowViewState.IdRef="ImageFound_3">
+                    <ui:ImageFound.Image>
+                      <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAYUAAAAgCAYAAAD9hWShAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJRSURBVHhe7dtvTsMwDIfhHomdaeJQTD0G59jETXaDUDeNcVynf8S+EN5Kj4g9Lx/zUygMH59fybs/Uhpv9zQMk7cx/xzS3I/mAQB9qEIhh0FKl9t1DoVCAqGEBMEAAP2qQmEOgceYaSDkULjojeFSbQAA6IeGwvX9mm8ISyhICORQuK6Mt3G1EQDg79NQGKbrgAbCFA51EAy77D5lfabXmon4GVtH/dbaivrSK/xnANCjVSjkQBiSf+4PeZ9wX6r6sYemP0BL3erb9dZMqy/raM7P2PXe/JEaAHpUhYIEgg8FCQL5dVG5NciT3y3kdw25rg/dsrb12ZmojvpHvvubeavVB4BeVKEgL5FtKNhAmI7+5ed2KJS9/Drq+brV96K9tr77m3kA+E80FOxtQA5FHwjlpXP0tA7YI/3WTFlHtuZfvS51YfsA0BsNhbmYD74cCjYQhKylNy1qLwgFz8+36qhX6tY+Z+etVh8AelGFwtxYQsEHgoZC8PjDstRH+q2Z6LOo16pb+5ydt1p9AOjFKhTyDSGHgTcHhXxWLE90WB45WPdmjuzbmrH91tr2fH+vBoAerUJhbs6HZL4dSBgIf1P4edks4oPW93x/b+YVe2ytragvvcJ/BgA92gwFeblcBcLUL+xfIHFoAkAfNkPBBoL/x7USCHlNKABADzZC4ZxoHwDA3xKGAgDgfxqez2cCAEAQCgAARSgAABShAABQhAIAQBEKAABFKAAAFKEAAFCEAgBAEQoAAEUoAAAUoQAAUIQCAEARCgAARSgAABbP9A24vETgQLcVqAAAAABJRU5ErkJggg==" />
+                    </ui:ImageFound.Image>
+                    <ui:ImageFound.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="&lt;wnd cls='SunAwtCanvas' /&gt;&lt;java name='TIA' role='internal frame' /&gt;&lt;java idx='8' role='panel' /&gt;" TimeoutMS="3000" WaitForReady="INTERACTIVE" />
+                    </ui:ImageFound.Target>
+                  </ui:ImageFound>
+                  <If Condition="[Warning_found]" sap:VirtualizedContainerService.HintSize="697,253" sap2010:WorkflowViewState.IdRef="If_6">
+                    <If.Then>
+                      <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  OK'" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                        <ui:Click.CursorPosition>
+                          <ui:CursorPosition Position="Center">
+                            <ui:CursorPosition.OffsetX>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:CursorPosition.OffsetX>
+                            <ui:CursorPosition.OffsetY>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:CursorPosition.OffsetY>
+                          </ui:CursorPosition>
+                        </ui:Click.CursorPosition>
+                        <ui:Click.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="c742057f67961fcdb3ab7e80a242634f" Selector="&lt;wnd cls='SunAwtCanvas' /&gt;&lt;java name='WARNING' role='internal frame' /&gt;&lt;java idx='2' name='OK' role='push button' /&gt;" WaitForReady="INTERACTIVE" />
+                        </ui:Click.Target>
+                      </ui:Click>
+                    </If.Then>
+                    <If.Else>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_32" Level="Info" Message="[&quot;No Warning Message&quot;]" />
+                    </If.Else>
+                  </If>
+                  <Sequence sap:VirtualizedContainerService.HintSize="697,1192" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:GetFullText DisplayName="Get Full Text 'text  Customer:'" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="GetFullText_2" IgnoreHidden="False">
+                      <ui:GetFullText.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="9562f2f9d557eab7d67f4db6faaae071" Selector="&lt;html title='PROD Mirror on AAMORPHEUS' /&gt;&lt;wnd cls='SunAwtCanvas' /&gt;&lt;java name='TIA' role='internal frame' /&gt;&lt;java name='Customer:' role='text' /&gt;" WaitForReady="INTERACTIVE" />
+                      </ui:GetFullText.Target>
+                      <ui:GetFullText.Text>
+                        <OutArgument x:TypeArguments="x:String">[T_Customername]</OutArgument>
+                      </ui:GetFullText.Text>
+                    </ui:GetFullText>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Customer Name &quot; + T_Customername]" />
+                    <ui:GetFullText DisplayName="Get Full Text 'text'" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="GetFullText_1" IgnoreHidden="False">
+                      <ui:GetFullText.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="5dcae74e9ffd9a920ce83dc40d422ed3" Selector="&lt;wnd cls='SunAwtCanvas' /&gt;&lt;java name='TIA' role='internal frame' /&gt;&lt;java idx='37' role='text' /&gt;" WaitForReady="INTERACTIVE" />
+                      </ui:GetFullText.Target>
+                      <ui:GetFullText.Text>
+                        <OutArgument x:TypeArguments="x:String">[PolicyStartDate]</OutArgument>
+                      </ui:GetFullText.Text>
+                    </ui:GetFullText>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Policy Start Date &quot; + PolicyStartDate]" />
+                    <ui:GetFullText DisplayName="Get Full Text 'text  Expiry Date:'" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="GetFullText_3" IgnoreHidden="False">
+                      <ui:GetFullText.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="2bb69a246b3ed08efc0930a31a70c2a7" Selector="&lt;wnd cls='SunAwtCanvas' /&gt;&lt;java name='TIA' role='internal frame' /&gt;&lt;java idx='39' role='text' /&gt;" WaitForReady="INTERACTIVE" />
+                      </ui:GetFullText.Target>
+                      <ui:GetFullText.Text>
+                        <OutArgument x:TypeArguments="x:String">[PolicyExpiryDate]</OutArgument>
+                      </ui:GetFullText.Text>
+                    </ui:GetFullText>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Policy Expiry Date &quot; + PolicyExpiryDate]" />
+                    <ui:GetFullText DisplayName="Get Full Text 'text'" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="GetFullText_4" IgnoreHidden="False">
+                      <ui:GetFullText.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="e86fcad0151a96496a72391efff9081c" Selector="&lt;html title='PROD Mirror on AAMORPHEUS' /&gt;&lt;wnd cls='SunAwtCanvas' /&gt;&lt;java name='TIA' role='internal frame' /&gt;&lt;java idx='35' role='text' /&gt;" WaitForReady="INTERACTIVE" />
+                      </ui:GetFullText.Target>
+                      <ui:GetFullText.Text>
+                        <OutArgument x:TypeArguments="x:String">[PolicyStatus]</OutArgument>
+                      </ui:GetFullText.Text>
+                    </ui:GetFullText>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Policy Status &quot; + PolicyStatus]" />
+                  </Sequence>
+                  <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="Get OCR Text 'combo box'" sap:VirtualizedContainerService.HintSize="697,168" sap2010:WorkflowViewState.IdRef="GetOCRText_7">
+                    <ui:GetOCRText.OCREngine>
+                      <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
+                        <ActivityFunc.Argument>
+                          <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                        </ActivityFunc.Argument>
+                        <ui:GoogleOCR FilterRegion="{x:Null}" Text="{x:Null}" AllowedCharacters="" DeniedCharacters="'!~#@&quot;£.," DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_7" Image="[Image]" Invert="False" Language="eng" Profile="Screen" Scale="2" />
+                      </ActivityFunc>
+                    </ui:GetOCRText.OCREngine>
+                    <ui:GetOCRText.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="23eb574825a7c410fab42aafaca7d87f" Selector="&lt;html title='PROD Mirror on AAMORPHEUS' /&gt;&lt;wnd cls='SunAwtCanvas' /&gt;&lt;java name='TIA' role='internal frame' /&gt;&lt;java name='Membership Type' role='combo box' /&gt;" WaitForReady="INTERACTIVE" />
+                    </ui:GetOCRText.Target>
+                    <ui:GetOCRText.Text>
+                      <OutArgument x:TypeArguments="ui:GenericValue">[Temp_MembershipType]</OutArgument>
+                    </ui:GetOCRText.Text>
+                  </ui:GetOCRText>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="697,91" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[&quot;Temp_Membership Type &quot; + Temp_MembershipType]" />
+                  <Assign sap:VirtualizedContainerService.HintSize="697,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[Customer_Title]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[Split(T_Customername," ")(0)]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="697,91" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Customer Title &quot; +Customer_Title]" />
+                  <ui:GetFullText DisplayName="Get Full Text 'text  Forename'" sap:VirtualizedContainerService.HintSize="697,106" sap2010:WorkflowViewState.IdRef="GetFullText_8" IgnoreHidden="False">
+                    <ui:GetFullText.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="c18b2f7412492a1ce32816239d006215" Selector="&lt;html title='PROD Mirror on AAMORPHEUS' /&gt;&lt;wnd cls='SunAwtCanvas' /&gt;&lt;java name='TIA' role='internal frame' /&gt;&lt;java name='Forename' role='text' /&gt;" WaitForReady="INTERACTIVE" />
+                    </ui:GetFullText.Target>
+                    <ui:GetFullText.Text>
+                      <OutArgument x:TypeArguments="x:String">[Customer_Forename]</OutArgument>
+                    </ui:GetFullText.Text>
+                  </ui:GetFullText>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="697,91" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Customer Fore Name &quot;+Customer_Forename]" />
+                  <ui:GetFullText DisplayName="Get Full Text 'text  Surname'" sap:VirtualizedContainerService.HintSize="697,106" sap2010:WorkflowViewState.IdRef="GetFullText_9" IgnoreHidden="False">
+                    <ui:GetFullText.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="641a74650be1399ea65e66dfd5720b41" Selector="&lt;html title='PROD Mirror on AAMORPHEUS' /&gt;&lt;wnd cls='SunAwtCanvas' /&gt;&lt;java name='TIA' role='internal frame' /&gt;&lt;java name='Surname' role='text' /&gt;" WaitForReady="INTERACTIVE" />
+                    </ui:GetFullText.Target>
+                    <ui:GetFullText.Text>
+                      <OutArgument x:TypeArguments="x:String">[Customer_Surname]</OutArgument>
+                    </ui:GetFullText.Text>
+                  </ui:GetFullText>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="697,91" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Customer Sur Name &quot;+ Customer_Surname]" />
+                  <ui:GetFullText DisplayName="Get Full Text 'text  DD/MM/YYYY'" sap:VirtualizedContainerService.HintSize="697,106" sap2010:WorkflowViewState.IdRef="GetFullText_10" IgnoreHidden="False">
+                    <ui:GetFullText.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="a35c602e6fbffec569932614a53edee8" Selector="&lt;html title='PROD Mirror on AAMORPHEUS' /&gt;&lt;wnd cls='SunAwtCanvas' /&gt;&lt;java name='TIA' role='internal frame' /&gt;&lt;java idx='1' name='DD/MM/YYYY' role='text' /&gt;" WaitForReady="INTERACTIVE" />
+                    </ui:GetFullText.Target>
+                    <ui:GetFullText.Text>
+                      <OutArgument x:TypeArguments="ui:GenericValue">[T_customer_dob]</OutArgument>
+                    </ui:GetFullText.Text>
+                  </ui:GetFullText>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="697,91" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Customer DOB &quot;+ T_customer_dob]" />
+                  <ui:GetFullText DisplayName="Get Full Text 'text No'" sap:VirtualizedContainerService.HintSize="697,106" sap2010:WorkflowViewState.IdRef="GetFullText_11" IgnoreHidden="False">
+                    <ui:GetFullText.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="54d184118c4c5daaf21d62256077c9ed" Selector="&lt;html title='PROD Mirror on AAMORPHEUS' /&gt;&lt;wnd cls='SunAwtCanvas' /&gt;&lt;java name='TIA' role='internal frame' /&gt;&lt;java name='No Of People Covered' role='text' /&gt;" WaitForReady="INTERACTIVE" />
+                    </ui:GetFullText.Target>
+                    <ui:GetFullText.Text>
+                      <OutArgument x:TypeArguments="ui:GenericValue">[T_NopeopleCovered]</OutArgument>
+                    </ui:GetFullText.Text>
+                  </ui:GetFullText>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="697,91" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot;People Covered &quot; + T_NopeopleCovered]" />
+                  <ui:GetFullText DisplayName="Get Full Text 'combo box'" sap:VirtualizedContainerService.HintSize="697,106" sap2010:WorkflowViewState.IdRef="GetFullText_12" IgnoreHidden="False">
+                    <ui:GetFullText.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="43ffe7c7798172901f4d3cb5f207d4fa" Selector="&lt;html title='PROD Mirror on AAMORPHEUS' /&gt;&lt;wnd cls='SunAwtCanvas' /&gt;&lt;java name='TIA' role='internal frame' /&gt;&lt;java name='Registration No' role='text' /&gt;" WaitForReady="INTERACTIVE" />
+                    </ui:GetFullText.Target>
+                    <ui:GetFullText.Text>
+                      <OutArgument x:TypeArguments="ui:GenericValue">[T_VRN]</OutArgument>
+                    </ui:GetFullText.Text>
+                  </ui:GetFullText>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="697,91" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="Info" Message="[&quot;Vehicle details &quot;+T_VRN]" />
+                  <If Condition="[T_VRN.Contains(&quot;N/A&quot;)]" sap:VirtualizedContainerService.HintSize="697,1787" sap2010:WorkflowViewState.IdRef="If_2">
+                    <If.Then>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_24" Level="Info" Message="[&quot;No Vehicle Details found&quot;]" />
+                    </If.Then>
+                    <If.Else>
+                      <Sequence sap:VirtualizedContainerService.HintSize="358,1640" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Sequence sap:VirtualizedContainerService.HintSize="336,523" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:GetOCRText Text="{x:Null}" WordsInfo="{x:Null}" DisplayName="Get OCR Text 'combo box  Make'" sap:VirtualizedContainerService.HintSize="314,168" sap2010:WorkflowViewState.IdRef="GetOCRText_12">
+                            <ui:GetOCRText.OCREngine>
+                              <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
+                                <ActivityFunc.Argument>
+                                  <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                                </ActivityFunc.Argument>
+                                <ui:GoogleOCR FilterRegion="{x:Null}" AllowedCharacters="" DeniedCharacters="'&quot;#~@v :1‘j" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_13" Image="[Image]" Invert="False" Language="eng" Profile="Screen" Scale="2" Text="[T_Vehicle_Make]" />
+                              </ActivityFunc>
+                            </ui:GetOCRText.OCREngine>
+                            <ui:GetOCRText.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="3903f00fa14d16a44e40a9c663b05a48" Selector="&lt;html title='PROD Mirror on AAMORPHEUS' /&gt;&lt;wnd cls='SunAwtCanvas' /&gt;&lt;java name='TIA' role='internal frame' /&gt;&lt;java name='Make' role='combo box' /&gt;" WaitForReady="INTERACTIVE" />
+                            </ui:GetOCRText.Target>
+                          </ui:GetOCRText>
+                          <Assign sap:VirtualizedContainerService.HintSize="314,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[T_Vehicle_Make]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Replace(T_Vehicle_Make,"[^a-z A-Z -]","")]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_17" Level="Info" Message="[&quot;Vehicle Make &quot; + T_Vehicle_Make]" />
+                        </Sequence>
+                        <ui:GetOCRText Text="{x:Null}" WordsInfo="{x:Null}" DisplayName="Get OCR Text 'combo box  Model'" sap:VirtualizedContainerService.HintSize="336,168" sap2010:WorkflowViewState.IdRef="GetOCRText_13">
+                          <ui:GetOCRText.OCREngine>
+                            <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
+                              <ActivityFunc.Argument>
+                                <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                              </ActivityFunc.Argument>
+                              <ui:GoogleOCR FilterRegion="{x:Null}" AllowedCharacters="" DeniedCharacters="'&quot;~#@:v'‘" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_14" Image="[Image]" Invert="False" Language="eng" Profile="Screen" Scale="2" Text="[T_Vehicle_Model]" />
+                            </ActivityFunc>
+                          </ui:GetOCRText.OCREngine>
+                          <ui:GetOCRText.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="074a65be921488a600513571e383162c" Selector="&lt;html title='PROD Mirror on AAMORPHEUS' /&gt;&lt;wnd cls='SunAwtCanvas' /&gt;&lt;java name='TIA' role='internal frame' /&gt;&lt;java name='Model' role='combo box' /&gt;" WaitForReady="INTERACTIVE" />
+                          </ui:GetOCRText.Target>
+                        </ui:GetOCRText>
+                        <Assign sap:VirtualizedContainerService.HintSize="336,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[T_Vehicle_Model]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Replace(T_Vehicle_Model,"[^A-Z 0-9 -]","")]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="336,91" sap2010:WorkflowViewState.IdRef="LogMessage_19" Level="Info" Message="[&quot;Vehicle Model &quot; +T_Vehicle_Model.Replace(&quot;.&quot;,&quot; &quot;)]" />
+                        <ui:GetFullText DisplayName="Get Full Text 'text  DD/MM/YYYY'" sap:VirtualizedContainerService.HintSize="336,106" sap2010:WorkflowViewState.IdRef="GetFullText_14" IgnoreHidden="False">
+                          <ui:GetFullText.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="dafe6be6997f01a145119b0a21318aa6" Selector="&lt;html title='PROD Mirror on AAMORPHEUS' /&gt;&lt;wnd cls='SunAwtCanvas' /&gt;&lt;java name='TIA' role='internal frame' /&gt;&lt;java idx='2' name='DD/MM/YYYY' role='text' /&gt;" WaitForReady="INTERACTIVE" />
+                          </ui:GetFullText.Target>
+                          <ui:GetFullText.Text>
+                            <OutArgument x:TypeArguments="ui:GenericValue">[T_CRN_REGDATE]</OutArgument>
+                          </ui:GetFullText.Text>
+                        </ui:GetFullText>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="336,91" sap2010:WorkflowViewState.IdRef="LogMessage_20" Level="Info" Message="[&quot;VRN Reg Date &quot; +T_CRN_REGDATE]" />
+                        <ui:GetFullText DisplayName="Get Full Text 'text  Mileage'" sap:VirtualizedContainerService.HintSize="336,106" sap2010:WorkflowViewState.IdRef="GetFullText_15" IgnoreHidden="False">
+                          <ui:GetFullText.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="84a0a416792894fcb218081e27aecdb4" Selector="&lt;html title='PROD Mirror on AAMORPHEUS' /&gt;&lt;wnd cls='SunAwtCanvas' /&gt;&lt;java name='TIA' role='internal frame' /&gt;&lt;java name='Mileage' role='text' /&gt;" WaitForReady="INTERACTIVE" />
+                          </ui:GetFullText.Target>
+                          <ui:GetFullText.Text>
+                            <OutArgument x:TypeArguments="ui:GenericValue">[T_Vehicle_Mileage]</OutArgument>
+                          </ui:GetFullText.Text>
+                        </ui:GetFullText>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="336,91" sap2010:WorkflowViewState.IdRef="LogMessage_21" Level="Info" Message="[&quot;Vehicle Mileage &quot;+T_Vehicle_Mileage]" />
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                  <ui:GetFullText DisplayName="Get Full Text 'text  House Name/No'" sap:VirtualizedContainerService.HintSize="697,106" sap2010:WorkflowViewState.IdRef="GetFullText_16" IgnoreHidden="False">
+                    <ui:GetFullText.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="78e25226f5c0300fe5d49fc782be796e" Selector="&lt;html title='PROD Mirror on AAMORPHEUS' /&gt;&lt;wnd cls='SunAwtCanvas' /&gt;&lt;java name='TIA' role='internal frame' /&gt;&lt;java name='House Name/No' role='text' /&gt;" WaitForReady="INTERACTIVE" />
+                    </ui:GetFullText.Target>
+                    <ui:GetFullText.Text>
+                      <OutArgument x:TypeArguments="ui:GenericValue">[Hosue_name]</OutArgument>
+                    </ui:GetFullText.Text>
+                  </ui:GetFullText>
+                  <ui:GetFullText DisplayName="Get Full Text 'text'" sap:VirtualizedContainerService.HintSize="697,106" sap2010:WorkflowViewState.IdRef="GetFullText_17" IgnoreHidden="False">
+                    <ui:GetFullText.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="bdb0f3c13642bf2a03e3de6a040d5730" Selector="&lt;html title='PROD Mirror on AAMORPHEUS' /&gt;&lt;wnd cls='SunAwtCanvas' /&gt;&lt;java name='TIA' role='internal frame' /&gt;&lt;java idx='9' role='text' /&gt;" WaitForReady="INTERACTIVE" />
+                    </ui:GetFullText.Target>
+                    <ui:GetFullText.Text>
+                      <OutArgument x:TypeArguments="ui:GenericValue">[Houseno]</OutArgument>
+                    </ui:GetFullText.Text>
+                  </ui:GetFullText>
+                  <ui:GetFullText DisplayName="Get Full Text 'text  Street'" sap:VirtualizedContainerService.HintSize="697,106" sap2010:WorkflowViewState.IdRef="GetFullText_18" IgnoreHidden="False">
+                    <ui:GetFullText.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="e5cb19d0bad56a1faac939f54fc183f9" Selector="&lt;html title='PROD Mirror on AAMORPHEUS' /&gt;&lt;wnd cls='SunAwtCanvas' /&gt;&lt;java name='TIA' role='internal frame' /&gt;&lt;java name='Street' role='text' /&gt;" WaitForReady="INTERACTIVE" />
+                    </ui:GetFullText.Target>
+                    <ui:GetFullText.Text>
+                      <OutArgument x:TypeArguments="ui:GenericValue">[Stree]</OutArgument>
+                    </ui:GetFullText.Text>
+                  </ui:GetFullText>
+                  <ui:GetFullText DisplayName="Get Full Text 'text  Post Code'" sap:VirtualizedContainerService.HintSize="697,106" sap2010:WorkflowViewState.IdRef="GetFullText_19" IgnoreHidden="False">
+                    <ui:GetFullText.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="b833ed693e29af17807cbb3e429c259f" Selector="&lt;html title='PROD Mirror on AAMORPHEUS' /&gt;&lt;wnd cls='SunAwtCanvas' /&gt;&lt;java name='TIA' role='internal frame' /&gt;&lt;java name='Post Code' role='text' /&gt;" WaitForReady="INTERACTIVE" />
+                    </ui:GetFullText.Target>
+                    <ui:GetFullText.Text>
+                      <OutArgument x:TypeArguments="ui:GenericValue">[T_PostCode]</OutArgument>
+                    </ui:GetFullText.Text>
+                  </ui:GetFullText>
+                  <If Condition="[Hosue_name.Length&lt;1]" sap:VirtualizedContainerService.HintSize="697,207" sap2010:WorkflowViewState.IdRef="If_1">
+                    <If.Then>
+                      <Assign sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="ui:GenericValue">[T_AddressLine1]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="ui:GenericValue">[Houseno+" "+Stree]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </If.Then>
+                    <If.Else>
+                      <Assign sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="ui:GenericValue">[T_AddressLine1]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="ui:GenericValue">[Houseno +" "+ Hosue_name]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </If.Else>
+                  </If>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="697,91" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="Info" Message="[&quot;Address Line 1 - &quot; + T_AddressLine1]" />
+                </Sequence>
+              </ActivityAction>
+            </ui:WindowScope.Body>
+          </ui:WindowScope>
+          <ui:OpenBrowser UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Open Browser" Hidden="False" sap:VirtualizedContainerService.HintSize="733,1283" sap2010:WorkflowViewState.IdRef="OpenBrowser_2" NewSession="True" Private="False" Url="http://caars-uat/">
+            <ui:OpenBrowser.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="436,1184" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Name="VehicleOffRisk" />
+                    <Variable x:TypeArguments="x:String" Name="url" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'Chrome.exe '" sap:VirtualizedContainerService.HintSize="414,292" sap2010:WorkflowViewState.IdRef="WindowScope_4" InformativeScreenshot="9cdb4d0a4eb7c12acc032a31cf80be7d" Selector="&lt;wnd app='iexplore.exe' cls='IEFrame' title='http://caars-uat/ - Internet Explorer' /&gt;">
+                    <ui:WindowScope.Body>
+                      <ActivityAction x:TypeArguments="x:Object">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="222,146" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="MaximizeWindow_2" />
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:WindowScope.Body>
+                  </ui:WindowScope>
+                  <ui:TypeInto DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DelayBefore="500" DelayBetweenKeys="30" DisplayName="Type Into 'INPUT  MembershipNumber'" EmptyField="False" sap:VirtualizedContainerService.HintSize="414,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" SendWindowMessages="False" SimulateType="True" Text="[arg_membership]">
+                    <ui:TypeInto.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="e4e911b520000c37479df5d7c6b99710" Selector="&lt;webctrl id='MembershipNumber' tag='INPUT' /&gt;" WaitForReady="INTERACTIVE" />
+                    </ui:TypeInto.Target>
+                  </ui:TypeInto>
+                  <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'INPUT'" sap:VirtualizedContainerService.HintSize="414,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                    <ui:Click.CursorPosition>
+                      <ui:CursorPosition Position="Center">
+                        <ui:CursorPosition.OffsetX>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetX>
+                        <ui:CursorPosition.OffsetY>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetY>
+                      </ui:CursorPosition>
+                    </ui:Click.CursorPosition>
+                    <ui:Click.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="33c79341c13347599552f8bb114843b8" Selector="&lt;webctrl name='Search' tag='INPUT' /&gt;" WaitForReady="INTERACTIVE" />
+                    </ui:Click.Target>
+                  </ui:Click>
+                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'H2'" sap:VirtualizedContainerService.HintSize="414,106" sap2010:WorkflowViewState.IdRef="GetValue_2">
+                    <ui:GetValue.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="bd0a60d3194e61cb11ba34c5744a64e0" Selector="&lt;webctrl idx='3' tag='H2' /&gt;" WaitForReady="INTERACTIVE" />
+                    </ui:GetValue.Target>
+                    <ui:GetValue.Value>
+                      <OutArgument x:TypeArguments="x:String">[NewOutpu]</OutArgument>
+                    </ui:GetValue.Value>
+                  </ui:GetValue>
+                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="414,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[&quot;Membership Number &quot; + NewOutpu]" />
+                  <Assign sap:VirtualizedContainerService.HintSize="414,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[PolicyNumber]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[Split(NewOutpu,",")(0)]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="414,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[&quot;Policy Number is &quot;+ PolicyNumber]" />
+                </Sequence>
+              </ActivityAction>
+            </ui:OpenBrowser.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:OpenBrowser>
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CAARS_POLICY workflow" sap:VirtualizedContainerService.HintSize="733,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="CAARS_POLICY.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="arg_PolicyExpiryDate">[PolicyExpiryDate]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="arg_PolicyStartDate">[PolicyStartDate]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="arg_Title">[Customer_Title]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="arg_cust_fn">[Customer_Forename]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="arg_cust_ln">[Customer_Surname]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="arg_address">[T_AddressLine1]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="arg_postcode">[T_PostCode]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="arg_policystatus">[PolicyStatus]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="arg_vrn">[T_VRN]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="arg_dateofreg">[T_CRN_REGDATE]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="arg_make">[T_Vehicle_Make]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="arg_model">[T_Vehicle_Model]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="arg_mileage">[T_Vehicle_Mileage]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="arg_pol_no">[PolicyNumber]</InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="759,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_25" Level="Error" Message="[exception.ToString]" />
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+      <TryCatch.Finally>
+        <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'iexplore.exe PROD'" sap:VirtualizedContainerService.HintSize="414,750" sap2010:WorkflowViewState.IdRef="WindowScope_5" InformativeScreenshot="74bc117e19fbfc4534f8b1cba56614e2" Selector="&lt;wnd app='iexplore.exe' cls='IEFrame' title='PROD Mirror on AAMORPHEUS - Internet Explorer' /&gt;">
+          <ui:WindowScope.Body>
+            <ActivityAction x:TypeArguments="x:Object">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="336,604" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:SendHotkey DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Send Hotkey" EmptyField="False" sap:VirtualizedContainerService.HintSize="314,116" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="f6" KeyModifiers="None" SendWindowMessages="False" SpecialKey="True">
+                  <ui:SendHotkey.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" WaitForReady="INTERACTIVE" />
+                  </ui:SendHotkey.Target>
+                </ui:SendHotkey>
+                <ui:SendHotkey DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Send Hotkey" EmptyField="False" sap:VirtualizedContainerService.HintSize="314,116" sap2010:WorkflowViewState.IdRef="SendHotkey_2" Key="f6" KeyModifiers="None" SendWindowMessages="False" SpecialKey="True">
+                  <ui:SendHotkey.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" WaitForReady="INTERACTIVE" />
+                  </ui:SendHotkey.Target>
+                </ui:SendHotkey>
+                <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="314,22" sap2010:WorkflowViewState.IdRef="Delay_4" />
+                <ui:CloseWindow Selector="{x:Null}" TimeoutMS="{x:Null}" UseWindow="{x:Null}" DisplayName="Close Window 'iexplore.exe PROD'" sap:VirtualizedContainerService.HintSize="314,106" sap2010:WorkflowViewState.IdRef="CloseWindow_1" InformativeScreenshot="9bf3d12a14159c6c02dadf54bcdec0f8" WaitForReady="INTERACTIVE" />
+              </Sequence>
+            </ActivityAction>
+          </ui:WindowScope.Body>
+        </ui:WindowScope>
+      </TryCatch.Finally>
+    </TryCatch>
+  </Sequence>
+</Activity>
